@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Clock, CheckCircle, Loader, Plus } from "lucide-react"
 
-interface HistoryItem {
+export interface HistoryItem {
   id: string
   title: string
   timestamp: Date

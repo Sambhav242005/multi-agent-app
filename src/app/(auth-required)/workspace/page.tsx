@@ -1,11 +1,12 @@
 "use client"
+
 // pages/workspace.tsx
 import { useState } from "react"
-import { HistorySidebar } from "@/components/history-sidebar"
+import { HistorySidebar, HistoryItem } from "@/components/history-sidebar"
 import { LiveWorkingArea } from "@/components/live-working-area"
 
 export default function WorkspacePage() {
-  const [history, setHistory] = useState([
+  const [history, setHistory] = useState<HistoryItem[]>([
     {
       id: "1",
       title: "AI-powered task management app",
@@ -26,16 +27,16 @@ export default function WorkspacePage() {
     }
   ])
   
-  const [selectedIdea, setSelectedIdea] = useState< | null>(null)
+  const [selectedIdea, setSelectedIdea] = useState<HistoryItem | null>(null)
   const [activeAgent, setActiveAgent] = useState<string | null>(null)
 
-  const handleSelectIdea = (idea: any) => {
+  const handleSelectIdea = (idea: HistoryItem) => {
     setSelectedIdea(idea)
     setActiveAgent(null) // Reset active agent when selecting a new idea
   }
 
   const handleIdeaSubmit = (ideaTitle: string) => {
-    const newIdea: any = {
+    const newIdea: HistoryItem = {
       id: Date.now().toString(),
       title: ideaTitle,
       timestamp: new Date(),
